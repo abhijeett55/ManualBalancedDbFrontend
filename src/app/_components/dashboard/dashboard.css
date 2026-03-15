@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f5f7fb;
+  color: #1e293b;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* main container – pushes footer down */
+.main-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+}
+
+.wrapper {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ----- DASHBOARD PART (elevated card) ----- */
+.dashboard-card {
+  background: #ffffff;
+  border-radius: 2.5rem;
+  box-shadow: 0 20px 35px -8px rgba(0, 34, 64, 0.1), 0 10px 15px -6px rgba(0, 0, 0, 0.02);
+  padding: 2.5rem;
+  transition: box-shadow 0.2s ease;
+  border: 1px solid #f0f4fe;
+}
+
+.dashboard-footer-note {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #4b5876;
+  border-top: 1px dashed #dce5f0;
+  padding-top: 1.2rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.dashboard-header {
+  margin-bottom: 2.2rem;
+}
+
+.dashboard-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(145deg, #1d4ed8, #6b21a8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  margin-bottom: 0.4rem;
+}
+
+.dashboard-header .tagline {
+  font-size: 1.2rem;
+  color: #475569;
+  max-width: 600px;
+  margin-top: 0.25rem;
+}
+
+/* storage meter (dashboard detail) */
+.storage-meter {
+  background: #f8fafc;
+  border-radius: 1.8rem;
+  padding: 1.5rem 1.8rem;
+  margin: 2rem 0 2.2rem 0;
+  border: 1px solid #e9eef3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.storage-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.storage-label span:first-child {
+  background: #dbeafe;
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.storage-bar-container {
+  flex: 1;
+  min-width: 240px;
+  margin-left: 2rem;
+}
+
+.storage-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #334155;
+  margin-bottom: 0.5rem;
+}
+
+.bar-bg {
+  background: #e1e8f0;
+  height: 10px;
+  border-radius: 999px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 10px;
+  background: linear-gradient(90deg, #2563eb, #8b5cf6);
+  border-radius: 999px;
+  width: 42.5%; /* example usage – change dynamically */
+  transition: width 0.3s ease;
+}
+
+/* feature grid – 4 core capabilities */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.8rem;
+}
+
+.feature-item {
+  background: #fafdff;
+  border-radius: 1.8rem;
+  padding: 1.8rem 1.5rem;
+  border: 1px solid #eef3f9;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 30px -12px rgba(37, 99, 235, 0.12);
+  border-color: #cbd5e1;
+}
+
+.feature-icon {
+  font-size: 2.3rem;
+  margin-bottom: 1.1rem;
+  display: block;
+}
+
+.feature-item h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #0f172a;
+}
+
+.feature-item p {
+  color: #5f6b7a;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}

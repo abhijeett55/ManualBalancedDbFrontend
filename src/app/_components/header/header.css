@@ -4,6 +4,7 @@
   padding: 0.75rem 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
 }
 
 .header-container {
