@@ -1,0 +1,99 @@
+.dashboard-header {
+  background-color: #90Eebf;
+  color: #010801;
+  padding: 0.75rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.brand-section {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #010801;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  transition: opacity 0.2s;
+}
+
+.brand:hover {
+  opacity: 0.9;
+}
+
+.tagline {
+  font-size: 1rem;
+  color: #a0b8cc;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.main-nav a {
+  color: #010801;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  transition: color 0.2s, border-bottom-color 0.2s;
+  border-bottom: 2px solid transparent;
+}
+
+.main-nav a:hover {
+  color: #ffffff;
+  border-bottom-color: #4a90e2;
+}
+
+.main-nav a.active {
+  color: #ffffff;
+  border-bottom-color: #4a90e2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .header-container {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  
+  .brand-section {
+    justify-content: center;
+  }
+  
+  .main-nav ul {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .tagline {
+    white-space: normal;
+  }
+}

@@ -1,0 +1,21 @@
+<header class="dashboard-header">
+  <div class="header-container">
+    <div class="brand-section">
+      <a routerLink="/" class="brand">ManualBalancedDB</a>
+    </div>
+    
+    <nav class="main-nav">
+      <ul>
+        @for (item of navItems; track item.label) {
+          <li>
+            <a [routerLink]="item.route"
+               routerLinkActive="active"
+               [routerLinkActiveOptions]="{exact: true}">
+              {{ item.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
