@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -11,9 +12,9 @@ import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 export class Header {
   navItems = [
     { label: 'Files', route: '/files' },
-    { label: 'Upload', route: '/upload' },
+    { label: 'Uploads', route: '/uploads' },
     { label: 'Insights', route: '/insights' },
     { label: 'Docs', route: '/docs' },
-    { label: 'Admin Console', route: '/admin' }
+    { label: 'AdminConsole', route: '/admin-console' }
   ];
 }
