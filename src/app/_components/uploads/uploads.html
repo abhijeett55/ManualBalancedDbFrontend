@@ -1,8 +1,8 @@
 <div class="uploads-container">
   <h1 class="page-title">Upload Files</h1>
-
+  <input type = "file" id = "fileInput" multiple hidden (change) = "onFileSelected($event)">
   <!-- Select Files -->
-  <div class="upload-area">
+  <div class="upload-area" onclick="document.getElementById('fileInput').click()">
     <div class="upload-icon">📤</div>
     <h3>Select Files</h3>
     <p class="upload-text">Click to upload or drag and drop</p>
@@ -54,6 +54,6 @@
 
   <!-- Upload Button -->
   <div class="upload-action">
-    <button class="upload-btn primary">Upload 0 File</button>
+    <button class="upload-btn primary" (click) = "upload()">Upload {{selectedFiles.length}} File </button>
   </div>
 </div>
