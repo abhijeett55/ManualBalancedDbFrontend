@@ -18,5 +18,11 @@ export const routes: Routes = [
     { path: 'home', component: Home },
     { path: 'admin-console', component: AdminConsole },
     { path: '**', redirectTo: '' },
-
+    {
+    path: '',
+    component: Home,
+    children: [
+      { path: '', component: Dashboard },      // default view
+      { path: 'files', component: Files } ]
+  }
 ];
