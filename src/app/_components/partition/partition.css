@@ -1,0 +1,178 @@
+.partitions-container {
+  background: #ffffff;
+  border-radius: 2rem;
+  box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  border: 1px solid #f0f4fe;
+  margin: 1rem 0;
+}
+
+/* Header */
+.partitions-header {
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(145deg, #1d4ed8, #6b21a8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 0.5rem 0;
+}
+
+.description {
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0;
+}
+
+/* Partitions Grid */
+.partitions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Partition Card */
+.partition-card {
+  background: #fafdff;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid #eef3f9;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.partition-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -8px rgba(37, 99, 235, 0.1);
+  border-color: #cbd5e1;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.partition-icon {
+  font-size: 2.2rem;
+  background: #e0e7ff;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  color: #1d4ed8;
+}
+
+.partition-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0 0 0.2rem 0;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.status-badge.healthy {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+/* For future expansion: warning, critical */
+.status-badge.warning {
+  background: #fef3c7;
+  color: #92400e;
+}
+.status-badge.critical {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.partition-details {
+  margin-top: 0.5rem;
+}
+
+.usage-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #334155;
+  margin-bottom: 0.5rem;
+}
+
+.usage-value {
+  font-weight: 500;
+}
+
+.file-count {
+  color: #64748b;
+}
+
+.progress-bar {
+  background: #e1e8f0;
+  height: 8px;
+  border-radius: 999px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 8px;
+  background: linear-gradient(90deg, #2563eb, #8b5cf6);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+/* Add Partition Button */
+.add-partition-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #e0e7ff;
+  border: none;
+  border-radius: 2.5rem;
+  padding: 0.7rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1d4ed8;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.add-partition-btn:hover {
+  background: #cbd5e1;
+  color: #0f172a;
+  border-color: #a5b4fc;
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .partitions-container {
+    padding: 1.5rem;
+  }
+  .partitions-grid {
+    grid-template-columns: 1fr;
+  }
+}
