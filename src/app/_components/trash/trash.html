@@ -1,1 +1,29 @@
-<p>trash works!</p>
+<div class="trash-container">
+  <!-- Header -->
+  <div class="trash-header">
+    <h1 class="page-title">Trash</h1>
+    <p class="info-text">
+      <i class="fas fa-clock"></i> Files in trash will be automatically deleted after 30 days
+    </p>
+  </div>
+
+  <!-- Empty state (when no files in trash) -->
+  <div class="empty-state">
+    <div class="empty-icon">
+      <i class="fas fa-trash-alt"></i>
+    </div>
+    <h2 class="empty-title">Trash is empty</h2>
+    <p class="empty-message">No files in the trash.</p>
+  </div>
+  
+  <div class="action-bar" style="display: none;">
+    <button class="empty-trash-btn">
+      <i class="fas fa-trash-alt"></i> Empty Trash
+    </button>
+    <span class="file-count">3 items</span>
+  </div>
+  <div class="files-list">
+    ... list of trashed files ...
+  </div>
+  
+</div>
