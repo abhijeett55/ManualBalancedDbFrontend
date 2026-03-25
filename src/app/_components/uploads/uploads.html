@@ -1,9 +1,12 @@
 <div class="uploads-container">
   <h1 class="page-title">Upload Files</h1>
-  <input type = "file" id = "fileInput" multiple hidden (change) = "onFileSelected($event)">
+  <input type="file" id="fileInput" multiple hidden (change)="onFileSelected($event)">
+
   <!-- Select Files -->
   <div class="upload-area" onclick="document.getElementById('fileInput').click()">
-    <div class="upload-icon">📤</div>
+    <div class="upload-icon">
+      <i class="fas fa-cloud-upload-alt"></i>
+    </div>
     <h3>Select Files</h3>
     <p class="upload-text">Click to upload or drag and drop</p>
     <p class="upload-hint">Support for multiple files • Max 2GB per file</p>
@@ -14,13 +17,21 @@
     <h3>Storage Partition</h3>
     <div class="partition-card">
       <div class="partition-header">
-        <span class="partition-name">📁 Personal</span>
+        <span class="partition-name">
+          <i class="fas fa-folder"></i> Personal
+        </span>
         <span class="partition-usage">0 B/5.0 GB</span>
       </div>
       <div class="partition-details">
-        <div class="detail-item">0 B used</div>
-        <div class="detail-item">5.0 GB total</div>
-        <div class="detail-item">0 files • 0.0% used</div>
+        <div class="detail-item">
+          <i class="fas fa-database"></i> 0 B used
+        </div>
+        <div class="detail-item">
+          <i class="fas fa-chart-line"></i> 5.0 GB total
+        </div>
+        <div class="detail-item">
+          <i class="fas fa-file"></i> 0 files • 0.0% used
+        </div>
       </div>
       <div class="progress-bar">
         <div class="progress-fill" style="width: 0%;"></div>
@@ -41,8 +52,12 @@
   <div class="ai-suggestions-section">
     <h3>AI Tag Suggestions</h3>
     <div class="ai-suggestions">
-      <p class="ai-description">AI will automatically analyze your files and suggest relevant tags</p>
-      <div class="ai-powered-badge">AI Powered</div>
+      <p class="ai-description">
+        <i class="fas fa-robot"></i> AI will automatically analyze your files and suggest relevant tags
+      </p>
+      <div class="ai-powered-badge">
+        <i class="fas fa-microchip"></i> AI Powered
+      </div>
     </div>
   </div>
 
@@ -54,6 +69,8 @@
 
   <!-- Upload Button -->
   <div class="upload-action">
-    <button class="upload-btn primary" (click) = "upload()">Upload {{selectedFiles.length}} File </button>
+    <button class="upload-btn primary" (click)="upload()">
+      <i class="fas fa-upload"></i> Upload {{selectedFiles.length}} File(s)
+    </button>
   </div>
 </div>
