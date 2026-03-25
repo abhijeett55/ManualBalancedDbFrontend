@@ -1,175 +1,386 @@
-* {
+/* Global Styles & Reset - MongoDB Green & White Theme */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: #f5f7fb;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: #f8fafc;
   color: #1e293b;
   line-height: 1.5;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* main container – pushes footer down */
-.main-content {
-  flex: 1;
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  color: #0f172a;
+}
+
+/* Header Styles - Clean White with Green Accent */
+app-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 2rem 1.5rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: #ffffff;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e9eef3;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Assuming common header structure - adjust to match your actual markup */
+app-header .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #10aa50 0%, #1f8a4c 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: -0.02em;
+}
+
+app-header .logo span {
+  color: #10aa50;
+  background: none;
+  background-clip: unset;
+  -webkit-background-clip: unset;
+}
+
+app-header nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+app-header nav a {
+  text-decoration: none;
+  color: #475569;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+app-header nav a:hover,
+app-header nav a.active {
+  color: #10aa50;
+}
+
+app-header .btn-primary {
+  background: #10aa50;
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+app-header .btn-primary:hover {
+  background: #0e8f45;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(16, 170, 80, 0.2);
+}
+
+/* Main Layout */
+main {
+  min-height: auto;
+}
+
+/* Dashboard Card Container */
+.main-content {
+  padding: 2rem 1rem;
 }
 
 .wrapper {
   max-width: 1280px;
-  width: 100%;
   margin: 0 auto;
+  width: 100%;
 }
 
-/* ----- DASHBOARD PART (elevated card) ----- */
 .dashboard-card {
   background: #ffffff;
-  border-radius: 2.5rem;
-  box-shadow: 0 20px 35px -8px rgba(0, 34, 64, 0.1), 0 10px 15px -6px rgba(0, 0, 0, 0.02);
+  border-radius: 32px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
   padding: 2.5rem;
-  transition: box-shadow 0.2s ease;
-  border: 1px solid #f0f4fe;
+  transition: box-shadow 0.3s ease;
+  border: 1px solid #edf2f7;
 }
 
-.dashboard-footer-note {
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  color: #4b5876;
-  border-top: 1px dashed #dce5f0;
-  padding-top: 1.2rem;
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
+.dashboard-card:hover {
+  box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
 }
 
 .dashboard-header {
-  margin-bottom: 2.2rem;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
-.dashboard-header h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  background: linear-gradient(145deg, #1d4ed8, #6b21a8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.tagline {
   display: inline-block;
-  margin-bottom: 0.4rem;
-}
-
-.dashboard-header .tagline {
-  font-size: 1.2rem;
-  color: #475569;
-  max-width: 600px;
-  margin-top: 0.25rem;
-}
-
-/* storage meter (dashboard detail) */
-.storage-meter {
-  background: #f8fafc;
-  border-radius: 1.8rem;
-  padding: 1.5rem 1.8rem;
-  margin: 2rem 0 2.2rem 0;
-  border: 1px solid #e9eef3;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.storage-label {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  background: #f0fdf4;
+  color: #15803d;
+  font-size: 1rem;
   font-weight: 500;
-  color: #1e293b;
+  padding: 0.6rem 1.5rem;
+  border-radius: 60px;
+  letter-spacing: -0.2px;
+  backdrop-filter: blur(2px);
+  border: 1px solid #dcfce7;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
-.storage-label span:first-child {
-  background: #dbeafe;
-  border-radius: 999px;
-  padding: 0.3rem 0.9rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #1e40af;
-}
-
-.storage-bar-container {
-  flex: 1;
-  min-width: 240px;
-  margin-left: 2rem;
-}
-
-.storage-stats {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.95rem;
-  color: #334155;
-  margin-bottom: 0.5rem;
-}
-
-.bar-bg {
-  background: #e1e8f0;
-  height: 10px;
-  border-radius: 999px;
-  width: 100%;
-  overflow: hidden;
-}
-
-.bar-fill {
-  height: 10px;
-  background: linear-gradient(90deg, #2563eb, #8b5cf6);
-  border-radius: 999px;
-  width: 42.5%; /* example usage – change dynamically */
-  transition: width 0.3s ease;
-}
-
-/* feature grid – 4 core capabilities */
+/* Feature Grid - MongoDB Inspired Cards */
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  margin-top: 1.8rem;
+  gap: 1.8rem;
+  margin-top: 1rem;
 }
 
 .feature-item {
-  background: #fafdff;
-  border-radius: 1.8rem;
+  background: #ffffff;
+  border-radius: 24px;
   padding: 1.8rem 1.5rem;
-  border: 1px solid #eef3f9;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  text-align: center;
+  transition: all 0.25s ease-in-out;
+  border: 1px solid #eef2ff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 .feature-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 30px -12px rgba(37, 99, 235, 0.12);
-  border-color: #cbd5e1;
+  transform: translateY(-4px);
+  border-color: #10aa50;
+  box-shadow: 0 20px 25px -12px rgba(16, 170, 80, 0.12);
 }
 
 .feature-icon {
-  font-size: 2.3rem;
-  margin-bottom: 1.1rem;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0fdf4;
+  width: 70px;
+  height: 70px;
+  border-radius: 40px;
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+  transition: all 0.2s;
+  color: #10aa50;
+}
+
+.feature-item:hover .feature-icon {
+  background: #10aa50;
+  color: white;
+  transform: scale(1.02);
 }
 
 .feature-item h3 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 0.4rem;
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
   color: #0f172a;
+  font-weight: 600;
 }
 
 .feature-item p {
-  color: #5f6b7a;
-  font-size: 0.95rem;
+  color: #475569;
+  font-size: 0.9rem;
   line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* Button Styles (for any primary actions) */
+button, .btn, .button {
+  background: #10aa50;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 40px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+button:hover, .btn:hover, .button:hover {
+  background: #0e8f45;
+}
+
+button:active, .btn:active {
+  transform: scale(0.98);
+}
+
+/* Footer Styles - Clean White with Green Touch */
+app-footer {
+  display: block;
+  background: #ffffff;
+  border-top: 1px solid #eef2f6;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  color: #5b6e8c;
+  font-size: 0.85rem;
+  margin-top: 2rem;
+}
+
+app-footer p {
+  margin: 0.5rem 0;
+}
+
+app-footer a {
+  color: #10aa50;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+app-footer a:hover {
+  color: #0c6e3a;
+  text-decoration: underline;
+}
+
+/* Router Outlet Content Styling */
+router-outlet + * {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Utility Classes */
+.text-green {
+  color: #10aa50;
+}
+
+.bg-green-light {
+  background: #f0fdf4;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .dashboard-card {
+    padding: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  app-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  app-header nav {
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .dashboard-card {
+    padding: 1.5rem;
+    border-radius: 24px;
+  }
+  
+  .tagline {
+    font-size: 3rem;
+    padding: 0.5rem 1.2rem;
+  }
+  
+  .feature-item {
+    padding: 1.2rem;
+  }
+  
+  .feature-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 1.6rem;
+  }
+  
+  .feature-item h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+  
+  .dashboard-header {
+    margin-bottom: 2rem;
+  }
+  
+  app-footer {
+    padding: 1.8rem 1rem;
+  }
+}
+
+/* Additional MongoDB Green Elements for Forms / Inputs */
+input, textarea, select {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.6rem 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #10aa50;
+  box-shadow: 0 0 0 3px rgba(16, 170, 80, 0.15);
+}
+
+/* Scrollbar (optional green accent) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #10aa50;
+}
+
+/* Selection Color */
+::selection {
+  background: rgba(16, 170, 80, 0.2);
+  color: #0f172a;
 }

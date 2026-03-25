@@ -1,100 +1,148 @@
+/* Header Styles - Transparent / No Background, Green & White Accents */
 .dashboard-header {
-  background-color: #90Eebf;
-  color: #010801;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: transparent; /* No background – fully transparent */
+  backdrop-filter: blur(0px); /* Remove any blur if previously set */
   padding: 0.75rem 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  width: 100%;
+  border-bottom: 1px solid rgba(16, 170, 80, 0.15); /* Subtle green-tinted border */
+  transition: border-color 0.2s ease;
+}
+
+/* Optional: add a very light background on scroll for readability (if needed) */
+.dashboard-header.scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom-color: #e9eef3;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 .header-container {
+  max-width: 1280px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1400px;
-  margin: 0 auto;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
+/* Brand Section */
 .brand-section {
-  display: flex;
-  align-items: baseline;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  flex-shrink: 0;
 }
 
 .brand {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #010801;
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #10aa50 0%, #1f8a4c 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
   text-decoration: none;
-  letter-spacing: -0.5px;
-  transition: opacity 0.2s;
+  letter-spacing: -0.02em;
+  transition: opacity 0.2s ease;
 }
 
 .brand:hover {
-  opacity: 0.9;
+  opacity: 0.85;
+  background: linear-gradient(135deg, #0e8f45 0%, #1a7940 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 
-.tagline {
-  font-size: 1rem;
-  color: #a0b8cc;
-  font-weight: 400;
-  white-space: nowrap;
-}
-
+/* Navigation Menu */
 .main-nav ul {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 1.5rem;
+  gap: 2rem;
+  align-items: center;
+}
+
+.main-nav li {
+  position: relative;
 }
 
 .main-nav a {
-  color: #010801;
   text-decoration: none;
-  font-size: 1rem;
   font-weight: 500;
+  font-size: 0.95rem;
   padding: 0.5rem 0;
-  transition: color 0.2s, border-bottom-color 0.2s;
-  border-bottom: 2px solid transparent;
+  color: #334155; /* Dark gray, good contrast on light background */
+  transition: color 0.2s ease;
+  display: inline-block;
+  position: relative;
+}
+
+/* Hover effect: green underline */
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #10aa50;
+  transition: width 0.25s ease;
+  border-radius: 4px;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+  width: 100%;
 }
 
 .main-nav a:hover {
-  color: #ffffff;
-  border-bottom-color: #4a90e2;
+  color: #10aa50;
 }
 
+/* Active link styling */
 .main-nav a.active {
-  color: #ffffff;
-  border-bottom-color: #4a90e2;
+  color: #10aa50;
+  font-weight: 600;
 }
+
+/* Optional: add a subtle indicator for active (already handled by underline) */
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .dashboard-header {
     padding: 0.75rem 1rem;
   }
-  
+
   .header-container {
     flex-direction: column;
     align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .brand {
+    font-size: 1.4rem;
     text-align: center;
+    display: block;
   }
-  
-  .brand-section {
-    justify-content: center;
-  }
-  
+
   .main-nav ul {
     justify-content: center;
+    gap: 1.5rem;
     flex-wrap: wrap;
+  }
+
+  .main-nav a {
+    font-size: 0.9rem;
+    padding: 0.4rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-nav ul {
     gap: 1rem;
   }
-  
-  .tagline {
-    white-space: normal;
+
+  .main-nav a {
+    font-size: 0.85rem;
   }
 }
