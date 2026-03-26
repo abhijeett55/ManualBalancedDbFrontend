@@ -35,11 +35,6 @@
     </button>
   </div>
 
-  <div *ngIf="uploadProgress > 0" class="progress-bar">
-    <div class="progress-fill" [style.width.%]="uploadProgress"></div>
-  </div>
-  <p *ngIf="uploadProgress > 0">{{uploadProgress}}%</p>
-
   <!-- ✅ Uploaded Files Display -->
   <div class="uploaded-files" *ngIf="uploadedFiles.length > 0">
   <h3>Uploaded Files</h3>
@@ -47,7 +42,7 @@
   <div *ngFor="let file of uploadedFiles" class="file-card">
     <p><strong>{{file.name}}</strong></p>
     <p>{{file.type}}</p>
-    <img *ngIf="file.type?.startsWith('image')"
+    <img *ngIf="file.type.startsWith('image')"
          [src]="file.url"
          width="120" />
 

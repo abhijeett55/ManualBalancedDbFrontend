@@ -1,29 +1,40 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
+export interface FileMetaData {
+  id: number;
+  name: string;
+  filename: string;
+  size: number;
+  type: string;
+  url: string;
+  tags: string;
+  uploadDate: string;
+}
 
 @Injectable({
   providedIn: 'root',
 })
-export class FileService  {
+export class FileService {
 
   private api = "http://localhost:8080/api/files";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  uploadFile(file: File, tags: string): Observable<any> {
+  uploadFile(file: File, tags: string): Observable<HttpEvent<FileMetaData>> {
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("tags", tags);
+    formData.append("tags", tags || '');
 
-    return this.http.post(`${this.api}/upload`, formData, {
+    return this.http.post<FileMetaData>(`${this.api}/upload`, formData, {
       reportProgress: true,
       observe: 'events'
-  });
+    });
   }
 
-  getFiles(): Observable<any> {
-    return this.http.get(`${this.api}`);
+  getFiles(): Observable<FileMetaData[]> {
+    return this.http.get<FileMetaData[]>(this.api);
   }
 
   deleteFile(id: number) {
