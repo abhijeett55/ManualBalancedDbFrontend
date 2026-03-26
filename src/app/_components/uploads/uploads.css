@@ -1,11 +1,11 @@
-/* Upload Container */
+
 .uploads-container {
   max-width: 1280px;
   margin: 0 auto;
   padding: 1.5rem;
 }
 
-/* Page Title */
+
 .page-title {
   font-size: 1.8rem;
   font-weight: 600;
@@ -13,7 +13,6 @@
   margin-bottom: 1.5rem;
 }
 
-/* Upload Area – matches card style */
 .upload-area {
   background: #ffffff;
   border: 2px dashed #e2e8f0;
@@ -58,58 +57,7 @@
   color: #64748b;
 }
 
-/* Partition Section */
-.partition-section h3,
-.tags-section h3,
-.ai-suggestions-section h3,
-.final-tags-section h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #0f172a;
-  margin-bottom: 1rem;
-}
 
-.partition-card {
-  background: #ffffff;
-  border-radius: 24px;
-  border: 1px solid #edf2f7;
-  padding: 1.2rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
-}
-
-.partition-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.8rem;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.partition-name {
-  font-weight: 600;
-  color: #0f172a;
-}
-
-.partition-name i {
-  color: #10aa50;
-  margin-right: 0.5rem;
-}
-
-.partition-usage {
-  font-size: 0.85rem;
-  color: #475569;
-}
-
-.partition-details {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  font-size: 0.85rem;
-  color: #64748b;
-  flex-wrap: wrap;
-}
 
 .detail-item i {
   margin-right: 0.25rem;
@@ -158,69 +106,6 @@
   font-size: 0.7rem;
   color: #64748b;
   margin-top: 0.25rem;
-}
-
-/* AI Suggestions */
-.ai-suggestions-section {
-  margin-bottom: 1.5rem;
-}
-
-.ai-suggestions {
-  background: #f8fafc;
-  border-radius: 24px;
-  padding: 1rem;
-  border: 1px solid #edf2f7;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.ai-description {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin: 0;
-  color: #475569;
-  font-size: 0.9rem;
-}
-
-.ai-description i {
-  color: #10aa50;
-  font-size: 1.2rem;
-}
-
-.ai-powered-badge {
-  background: #ffffff;
-  border: 1px solid #10aa50;
-  border-radius: 40px;
-  padding: 0.2rem 0.8rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #10aa50;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-.ai-powered-badge i {
-  font-size: 0.75rem;
-}
-
-/* Final Tags */
-.final-tags-section {
-  margin-bottom: 2rem;
-}
-
-.no-tags {
-  background: #f8fafc;
-  border-radius: 16px;
-  padding: 1rem;
-  text-align: center;
-  color: #64748b;
-  font-size: 0.85rem;
-  border: 1px solid #edf2f7;
 }
 
 /* Upload Button */
