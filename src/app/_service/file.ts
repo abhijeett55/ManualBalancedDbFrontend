@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
+import { FileMetaData } from '../_environment/filemetaData';
 import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-export interface FileMetaData {
-  id: number;
-  name: string;
-  filename: string;
-  size: number;
-  type: string;
-  url: string;
-  tags: string;
-  uploadDate: string;
-}
+// export interface FileMetaData {
+//   id: number;
+//   name: string;
+//   filename: string;
+//   size: number;
+//   type: string;
+//   url: string;
+//   tags: string;
+//   uploadDate: string;
+// }
 
 @Injectable({
   providedIn: 'root',

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FileService, FileMetaData } from '../../service/file';
+import { FileService } from '../../_service/file';
+import { FileMetaData } from '../../_environment/filemetaData';
 import { FormsModule } from '@angular/forms';
 import { HttpEventType } from '@angular/common/http';
 
