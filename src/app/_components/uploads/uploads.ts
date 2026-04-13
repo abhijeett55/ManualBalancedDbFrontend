@@ -30,11 +30,15 @@ export class Uploads implements OnInit {
   
   onFileSelected(event: any) {
     const files = Array.from(event.target.files) as File[];
-    this.selectedFiles.push(...files);
+    this.selectedFiles = files;
   }
 
   
   delete(id: number) {
+    if(!id) {
+      console.warn("Invalid ID, skipping delete");
+      return;
+    }
     this.fileService.deleteFile(id).subscribe({
       next: () => {
         this.uploadedFiles = this.uploadedFiles.filter(f => f.id !== id);
@@ -94,7 +98,8 @@ export class Uploads implements OnInit {
 
     if (event.dataTransfer?.files) {
       const files = Array.from(event.dataTransfer.files) as File[];
-      this.selectedFiles.push(...files);
+      this.selectedFiles = files;
     }
   }
+  
 }

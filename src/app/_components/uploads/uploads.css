@@ -168,6 +168,16 @@
   cursor: not-allowed;
   transform: none;
 }
+.upload-btn:not(.primary) {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.upload-btn:not(.primary):hover {
+  background: #cbd5e1;
+}
+
+
 
 /* Uploaded Files Grid */
 .uploaded-files {

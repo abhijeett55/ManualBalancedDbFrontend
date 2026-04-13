@@ -35,25 +35,56 @@
     </button>
   </div>
 
-  <!-- ✅ Uploaded Files Display -->
+  <!--Uploaded Files Display -->
+
+    <div class="upload-action">
+    <button class="upload-btn primary" (click)="loadFiles()">
+      <i class="fas fa-database"></i>
+      Show Data
+    </button>
+  </div>
+
   <div class="uploaded-files" *ngIf="uploadedFiles.length > 0">
   <h3>Uploaded Files</h3>
 
-  <div *ngFor="let file of uploadedFiles" class="file-card">
-    <p><strong>{{file.name}}</strong></p>
-    <p>{{file.type}}</p>
-    <img *ngIf="file.type.startsWith('image')"
-         [src]="file.url"
-         width="120" />
+    <div class="file-grid">
+      <div *ngFor="let file of uploadedFiles" class="file-card">
 
-    <br>
+        <!-- Preview -->
+        <div class="file-preview">
+          <img *ngIf="file.type.startsWith('image')" [src]="file.url" />
+          
+          <!-- File Icons -->
+          <i *ngIf="file.type.includes('pdf')" class="fas fa-file-pdf file-icon"></i>
+          <i *ngIf="file.type.includes('word') || file.type.includes('doc')" class="fas fa-file-word file-icon"></i>
+          <i *ngIf="file.type.includes('excel') || file.type.includes('sheet') || file.type.includes('xls')" class="fas fa-file-excel file-icon"></i>
 
-    <a [href]="file.url" target="_blank">Open File</a>
+            <i *ngIf="!file.type.startsWith('image') 
+              && !file.type.includes('pdf') 
+              && !file.type.includes('word') 
+              && !file.type.includes('doc') 
+              && !file.type.includes('excel') 
+              && !file.type.includes('xls')" 
+             class="fas fa-file file-icon">
+          </i>
 
-    
-    <br>
-    <button (click)="delete(file.id)">Delete</button>
+        </div>
+
+        <!-- Info -->
+        <div class="file-info">
+          <div class="file-name">{{ file.name }}</div>
+          <div class="file-type">{{ file.type }}</div>
+        </div>
+
+        <!-- Actions -->
+        <div class="file-actions">
+          <a [href]="file.url" target="_blank">Open</a>
+          <button *ngIf="file.id" (click)="delete(file.id)">Delete</button>
+        </div>
+
+      </div>
+    </div>
   </div>
-</div>
+
 
 </div>
