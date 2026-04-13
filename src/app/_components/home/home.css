@@ -1,7 +1,7 @@
 /* Layout container */
 .app-layout {
   display: flex;
-  max-width: 1600px;
+  max-width: 1700px;
   margin: 0 auto;
   padding: 1rem;
   gap: 1.5rem;
@@ -48,7 +48,7 @@ app-sidebar {
   background: #10aa50;
 }
 
-/* Responsive: stack on mobile */
+/*Responsive: stack on mobile */
 @media (max-width: 768px) {
   .app-layout {
     flex-direction: column;

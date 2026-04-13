@@ -52,6 +52,19 @@
   -webkit-background-clip: text;
 }
 
+.logo-icon {
+  color: #10aa50;
+  font-size: 1.8rem;
+}
+
+.logo-text {
+  background: linear-gradient(135deg, #10aa50 0%, #1f8a4c 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: -0.02em;
+}
+
 /* Navigation Menu */
 .main-nav ul {
   display: flex;
