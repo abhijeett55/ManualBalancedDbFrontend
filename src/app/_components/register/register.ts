@@ -1,0 +1,42 @@
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router'
+import { FormsModule, NgForm } from '@angular/forms';
+import { CommonModule} from '@angular/common';
+import { AuthService } from '../../_service/auth.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-register',
+  standalone: true,
+  imports: [FormsModule, CommonModule, RouterModule],
+  templateUrl: './register.html',
+  styleUrl: './register.css',
+})
+export class Register {
+
+  constructor(private router: Router, private authService: AuthService) { }
+
+    onRegister(form: NgForm) {
+    if(form.invalid) return;
+
+    const { name, email, password, confirmPassword } = form.value;
+
+    if(password !== confirmPassword) {
+      console.error('Password do not match');
+      return;
+    }
+
+
+    this.authService.register(name, email, password).subscribe({
+      next: (res) => {
+        console.log('Registration success', res);
+        this.authService.saveUserData(res.token , res.user);
+        this.router.navigate(['/dashboard']);
+      },
+      error: (err) => {
+        console.error('Registration failed', err);
+        alert(err.error?.message || "Registration failed");
+      }
+    });
+  }
+}
