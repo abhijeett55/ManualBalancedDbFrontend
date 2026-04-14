@@ -15,7 +15,7 @@ import { Settings } from './_components/settings/settings';
 import { Partition } from './_components/partition/partition';
 
 export const routes: Routes = [
-  { path: '', component: Dashboard },
+  { path: '', component: Login },
   {
     path: '',
     component: Home,

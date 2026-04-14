@@ -1,0 +1,143 @@
+/* Page Background */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f6fff9, #ecfdf5);
+  padding: 2rem;
+}
+
+/* Title */
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #065f46;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Card */
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(16, 170, 80, 0.08);
+  border: 1px solid rgba(16, 170, 80, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(16, 170, 80, 0.12);
+}
+
+/* Headings */
+.login-card h2 {
+  margin-bottom: 0.5rem;
+  color: #064e3b;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+/* Labels */
+label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #065f46;
+}
+
+/* Inputs */
+input {
+  padding: 0.6rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #d1fae5;
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.2s ease;
+  background: #f9fffb;
+}
+
+/* Input Focus */
+input:focus {
+  border-color: #10aa50;
+  box-shadow: 0 0 0 2px rgba(16, 170, 80, 0.15);
+  background: #ffffff;
+}
+
+/* Button */
+.login-btn {
+  margin-top: 0.5rem;
+  padding: 0.65rem;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #10aa50, #1f8a4c);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Button Hover */
+.login-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0e8f45, #1a7940);
+  transform: translateY(-1px);
+}
+
+/* Disabled Button */
+.login-btn:disabled {
+  background: #a7f3d0;
+  cursor: not-allowed;
+}
+
+/* Links Section */
+.links {
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+.links p {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* Links */
+.links a {
+  color: #10aa50;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+}
+
+.login-card h2,
+.login-card .subtitle {
+  text-align: center;
+}
