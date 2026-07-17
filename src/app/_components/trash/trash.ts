@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FileMetaData } from '../../_environment/filemetaData';
 
 @Component({
   selector: 'app-trash',
@@ -8,6 +9,12 @@ import { RouterModule } from '@angular/router';
   templateUrl: './trash.html',
   styleUrl: './trash.css',
 })
-export class Trash {
 
+export class Trash {
+  trashedFiles: FileMetaData[] = [];
+
+
+  emptyTrash(): void {
+    this.trashedFiles = [];
+  }
 }
