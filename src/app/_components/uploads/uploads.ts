@@ -19,8 +19,10 @@ export class Uploads implements OnInit {
   selectedFiles: File[] = [];
   uploadedFiles: FileMetaData[] = [];
   tags: string = '';
+  fileToDelete: { id: number; name: string } | null = null;
   uploadProgressMap: { [key: string]: number } = {};
   isDragging = false;
+  
 
   
   constructor(private fileService: FileService,
@@ -33,6 +35,37 @@ export class Uploads implements OnInit {
   }
 
 
+confirmDelete(id: number, name: string) {
+  this.fileToDelete = { id, name };
+}
+
+cancelDelete() {
+  this.fileToDelete = null;
+}
+
+proceedDelete() {
+  if (!this.fileToDelete) return;
+  const id = this.fileToDelete.id;
+
+  const currentUser = this.authService.getCurrentUser();
+  if (!currentUser || !currentUser.id) {
+    console.error('User not logged in');
+    this.fileToDelete = null;
+    return;
+  }
+  this.fileService.deleteFile(id, currentUser.id).subscribe({
+    next: () => {
+      this.uploadedFiles = this.uploadedFiles.filter(f => f.id !== id);
+      this.fileToDelete = null;
+    },
+    error: err => {
+      console.error(err);
+      this.fileToDelete = null;
+    }
+  });
+}
+
+
 
   
   onFileSelected(event: any) {
@@ -42,7 +75,7 @@ export class Uploads implements OnInit {
 
   
   delete(id: number) {
-      const currentUser = this.authService.getCurrentUser();
+    const currentUser = this.authService.getCurrentUser();
     if(!currentUser || !currentUser.id) {
       console.error('User not logged in');
       return;
@@ -89,6 +122,7 @@ export class Uploads implements OnInit {
     this.selectedFiles = [];
   }
 
+  
   
   loadFiles() {
 

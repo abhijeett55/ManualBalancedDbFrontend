@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { FileMetaData } from '../_environment/filemetaData';
 import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
+import { FileMetaData } from '../_environment/filemetaData';
 import { Partition } from '../_environment/partition';
 
 @Injectable({
@@ -9,7 +10,8 @@ import { Partition } from '../_environment/partition';
 })
 export class FileService {
 
-  private api = 'http://localhost:8080/api/files';
+  private filesApi = 'http://localhost:8080/api/files';
+  private partitionsApi = 'http://localhost:8080/api/partitions';
 
   constructor(private http: HttpClient) {}
 
@@ -25,11 +27,11 @@ export class FileService {
     formData.append('userId', userId);
 
     return this.http.post<FileMetaData>(
-      `${this.api}/upload`,
+      `${this.filesApi}/upload`,
       formData,
       {
-        reportProgress: true,
-        observe: 'events'
+        observe: 'events',
+        reportProgress: true
       }
     );
   }
@@ -48,18 +50,18 @@ export class FileService {
     formData.append('partition', partition);
 
     return this.http.post<FileMetaData>(
-      `${this.api}/upload-partition`,
+      `${this.filesApi}/upload-partition`,
       formData,
       {
-        reportProgress: true,
-        observe: 'events'
+        observe: 'events',
+        reportProgress: true
       }
     );
   }
 
   getFilesByUser(userId: string): Observable<FileMetaData[]> {
     return this.http.get<FileMetaData[]>(
-      `${this.api}/user/${userId}`
+      `${this.filesApi}/user/${userId}`
     );
   }
 
@@ -67,41 +69,39 @@ export class FileService {
     userId: string,
     partition: string
   ): Observable<FileMetaData[]> {
-
     return this.http.get<FileMetaData[]>(
-      `${this.api}/user/${userId}/partition/${partition}`
+      `${this.filesApi}/user/${userId}/partition/${partition}`
     );
   }
 
   deleteFile(id: number, userId: string) {
     return this.http.delete(
-      `${this.api}/${id}?userId=${userId}`
+      `${this.filesApi}/${id}?userId=${userId}`
     );
   }
 
   getStorageUsed(userId: string): Observable<number> {
     return this.http.get<number>(
-      `${this.api}/storage/${userId}`
+      `${this.filesApi}/storage/${userId}`
     );
   }
 
   createPartition(partition: Partition) {
     return this.http.post(
-      'http://localhost:8080/api/partitions',
+      this.partitionsApi,
       partition
     );
   }
 
-  getPartitions(userId: string) {
+  getPartitions(userId: string): Observable<Partition[]> {
     return this.http.get<Partition[]>(
-      `http://localhost:8080/api/partitions/user/${userId}`
+      `${this.partitionsApi}/user/${userId}`
     );
   }
 
   deletePartition(id: number) {
     return this.http.delete(
-      `http://localhost:8080/api/partitions/${id}`
+      `${this.partitionsApi}/${id}`
     );
   }
-
 }

@@ -13,7 +13,6 @@
     <h3>Drag & Drop Files</h3>
     <p>{{ isDragging ? 'Drop files here...' : 'Click or drag files to upload' }}</p>
   </div>
-
   @if (selectedFiles.length > 0) {
     <div class="selected-files">
       <h3>Selected Files</h3>
@@ -24,14 +23,12 @@
       }
     </div>
   }
-
   <div class="upload-action">
     <button class="upload-btn primary" (click)="upload()">
       <i class="fas fa-upload"></i>
       Upload {{ selectedFiles.length }} File(s)
     </button>
   </div>
-
   <!-- Uploaded Files Display -->
   <div class="upload-action">
     <button class="upload-btn primary" (click)="loadFiles()">
@@ -39,7 +36,6 @@
       Show Data
     </button>
   </div>
-
   @if (uploadedFiles.length > 0) {
     <div class="uploaded-files">
       <h3>Uploaded Files</h3>
@@ -69,11 +65,24 @@
             <div class="file-actions">
               <a [href]="file.url" target="_blank">Open</a>
               @if (file.id) {
-                <button (click)="delete(file.id)">Delete</button>
+                <button (click)="confirmDelete(file.id, file.name)">Delete</button>
               }
             </div>
           </div>
         }
+      </div>
+    </div>
+  }
+
+  <!-- Delete Confirmation Modal -->
+  @if (fileToDelete) {
+    <div class="modal-overlay" (click)="cancelDelete()">
+      <div class="modal-box" (click)="$event.stopPropagation()">
+        <p>Are you sure you want to delete <strong>{{ fileToDelete.name }}</strong>?</p>
+        <div class="modal-actions">
+          <button class="btn-no" (click)="cancelDelete()">No</button>
+          <button class="btn-yes" (click)="proceedDelete()">Yes, Delete</button>
+        </div>
       </div>
     </div>
   }
